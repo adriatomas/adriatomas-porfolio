@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
           <h1>Let me introduce myself.</h1>
 
           <div class="intro-info">
-            <img src="assets/images/profile-pic.jpg" alt="Profile Picture" />
+            <img src="assets/images/profile-pic.webp" alt="Profile Picture" />
 
             <p class="lead">
               Hi there! I am a Frontend developer specialized in Angular.js and
