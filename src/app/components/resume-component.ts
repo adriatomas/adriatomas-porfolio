@@ -1,4 +1,5 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild, inject } from '@angular/core';
+import { HeaderService } from '../services/header.service';
 
 @Component({
   selector: 'app-resume',
@@ -106,7 +107,7 @@ export class ResumeComponent implements AfterViewInit {
       date: 'July 2020 - July 2021',
       company: 'Crealogix',
       description:
-        '<p class="mb-2">responsible for the development of a mobile banking app for the United Arab Emirates. My tasks include coding, reviewing merge requests, and performing releases using Jenkins. Additionally, I am involved in managing client-reported issues in Redmine at certain times.</p>',
+        '<p class="mb-2">Responsible for the development of a mobile banking app for the United Arab Emirates. My tasks include coding, reviewing merge requests, and performing releases using Jenkins. Additionally, I am involved in managing client-reported issues in Redmine at certain times.</p>',
     },
     {
       title: 'Frontend engineer',
@@ -143,15 +144,20 @@ export class ResumeComponent implements AfterViewInit {
       title:
         'Advanced specific vocational training of Web applications development',
       date: 'September 2015 - June 2017',
-      school: "Inistitut Joan d'Austría",
+      school: "Institut Joan d'Austría",
       description:
-        '<p class="mb-2">qualification where you learn all the basics to be able to create web applications. This course is an official qualification from Spain.</p>',
+        '<p class="mb-2">Qualification where you learn all the basics to be able to create web applications. This course is an official qualification from Spain.</p>',
     },
   ];
 
   @ViewChild('resume', {static: true}) resume: ElementRef;
 
-  ngAfterViewInit() {
+  private headerService = inject(HeaderService)
 
+  ngAfterViewInit() {
+    let observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
+      this.headerService.visibleHeaderBackground = entries[0].isIntersecting;
+    });
+    observer.observe(this.resume.nativeElement);
   }
 }

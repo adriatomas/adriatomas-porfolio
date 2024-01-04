@@ -23,6 +23,7 @@
   */
  html {
    font-size: 10px;
+   scroll-behavior: smooth;
  }
  
  @media only screen and (max-width:1024px) {
@@ -781,134 +782,8 @@
    background: transparent;
    color: #313131;
  }
- 
- /**
-  * line definition style
-  */
- .lining dt, .lining dd {
-   display: inline;
-   margin: 0;
- }
- .lining dt + dt:before, .lining dd + dt:before {
-   content: "\A";
-   white-space: pre;
- }
- .lining dd + dd:before {
-   content: ", ";
- }
- .lining dd + dd:before {
-   content: ", ";
- }
- .lining dd:before {
-   content: ": ";
-   margin-left: -0.2em;
- }
- 
- /**
-  * dictionary definition style
-  */
- .dictionary-style dt {
-   display: inline;
-   counter-reset: definitions;
- }
- .dictionary-style dt + dt:before {
-   content: ", ";
-   margin-left: -0.2em;
- }
- .dictionary-style dd {
-   display: block;
-   counter-increment: definitions;
- }
- .dictionary-style dd:before {
-   content: counter(definitions, decimal) ". ";
- }
- 
- /** 
-  * Pull Quotes
-  * -----------
-  * markup:
-  *
-  * <aside class="pull-quote">
-  *		<blockquote>
-  *			<p></p>
-  *		</blockquote>
-  *	</aside>
-  *
-  * --------------------------------------------------------------------- 
-  */
- .pull-quote {
-   position: relative;
-   padding: 2.1rem 3rem 2.1rem 0px;
- }
- .pull-quote:before, .pull-quote:after {
-   height: 1em;
-   position: absolute;
-   font-size: 8rem;
-   font-family: Arial, Sans-Serif;
-   color: #333;
- }
- .pull-quote:before {
-   content: "\201C";
-   top: 33px;
-   left: 0;
- }
- .pull-quote:after {
-   content: '\201D';
-   bottom: -33px;
-   right: 0;
- }
- .pull-quote blockquote {
-   margin: 0;
- }
- .pull-quote blockquote:before {
-   content: none;
- }
- 
- /** 
-  * Stats Tab
-  * ---------
-  * markup:
-  *
-  * <ul class="stats-tabs">
-  *		<li><a href="#">[value]<em>[name]</em></a></li>
-  *	</ul>
-  *
-  * Extend this object into your markup.
-  *
-  * ---------------------------------------------------------------------
-  */
- .stats-tabs {
-   padding: 0;
-   margin: 3rem 0;
- }
- .stats-tabs li {
-   display: inline-block;
-   margin: 0 1.5rem 3rem 0;
-   padding: 0 1.5rem 0 0;
-   border-right: 1px solid #ccc;
- }
- .stats-tabs li:last-child {
-   margin: 0;
-   padding: 0;
-   border: none;
- }
- .stats-tabs li a {
-   display: inline-block;
-   font-size: 2.5rem;
-   font-family: "poppins-bold", sans-serif;
-   border: none;
-   color: #252525;
- }
- .stats-tabs li a:hover {
-   color: #fed136;
- }
- .stats-tabs li a em {
-   display: block;
-   margin: .6rem 0 0 0;
-   font-size: 1.4rem;
-   font-family: "poppins-regular", sans-serif;
-   color: #888888;
- }
+
+
  
  /**
   * skillbars - (_skillbars.scss)
@@ -1209,7 +1084,11 @@
    width: 100%;
    height: auto;
    clear: both;
-   display: none;
+   -webkit-transition: all .3s ease;
+	-moz-transition: all .3s ease;
+	-ms-transition: all .3s ease;
+	-o-transition: all .3s ease;
+	transition: all .3s ease;
  }
  .main-navigation > li {
    display: block;
@@ -1852,206 +1731,6 @@
    }
  }
  
- /**
-  * Popup Modal - (_layout.scss)
-  * ------------------------------------------------------------------
-  */
- .popup-modal {
-   max-width: 550px;
-   background: #FFFFFF;
-   position: relative;
-   margin: 0 auto;
- }
- .popup-modal .media {
-   position: relative;
- }
- .popup-modal img {
-   vertical-align: bottom;
- }
- .popup-modal .description-box {
-   padding: 1.8rem 3.6rem 3rem;
- }
- .popup-modal .description-box h4 {
-   font-family: "poppins-bold", sans-serif;
-   font-size: 1.5rem;
-   line-height: 2.4rem;
-   margin-bottom: .6rem;
- }
- .popup-modal .description-box p {
-   font-family: "poppins-regular", sans-serif;
-   font-size: 1.4rem;
-   line-height: 2.4rem;
-   margin-bottom: 12px;
- }
- .popup-modal .categories {
-   font-family: "poppins-bold", sans-serif;
-   font-size: 1.1rem;
-   line-height: 1.8rem;
-   text-transform: uppercase;
-   letter-spacing: .1rem;
-   display: block;
-   text-align: left;
-   color: rgba(0, 0, 0, 0.5);
- }
- .popup-modal .link-box {
-   width: 100%;
-   overflow: hidden;
-   background: #000000;
- }
- .popup-modal .link-box a {
-   font-family: "poppins-bold", sans-serif;
-   font-size: 1.2rem;
-   line-height: 6rem;
-   color: #FFFFFF;
-   text-transform: uppercase;
-   letter-spacing: 3px;
-   cursor: pointer;
-   display: block;
-   text-align: center;
-   float: left;
-   width: 50%;
-   -moz-transition: all 0.3s ease-in-out;
-   -o-transition: all 0.3s ease-in-out;
-   -webkit-transition: all 0.3s ease-in-out;
-   -ms-transition: all 0.3s ease-in-out;
-   transition: all 0.3s ease-in-out;
- }
- .popup-modal .link-box a:first-child {
-   border-right: 1px solid rgba(200, 200, 200, 0.1);
- }
- .popup-modal .link-box a:hover {
-   background: #fed136;
-   border: none;
- }
- @media only screen and (max-width:600px) {
-   .popup-modal {
-     width: auto;
-     margin: 0 20px;
-   }
- }
- 
- /**
-  * transition effect for modal popup - (_layout.scss)
-  * ------------------------------------------------------------------ 
-  */
- 
- /* overlay at start */
- .mfp-fade.mfp-bg {
-   opacity: 0;
-   -moz-transition: all 0.3s ease-in-out;
-   -o-transition: all 0.3s ease-in-out;
-   -webkit-transition: all 0.3s ease-in-out;
-   -ms-transition: all 0.3s ease-in-out;
-   transition: all 0.3s ease-in-out;
- }
- 
- /* overlay animate in */
- .mfp-fade.mfp-bg.mfp-ready {
-   opacity: .9;
- }
- 
- /* overlay animate out */
- .mfp-fade.mfp-bg.mfp-removing {
-   opacity: 0;
- }
- 
- /* content at start */
- .mfp-fade.mfp-wrap .mfp-content {
-   opacity: 0;
-   -webkit-transform: translateY(-100%);
-   -ms-transform: translateY(-100%);
-   transform: translateY(-100%);
-   -moz-transition: all 0.3s ease-in-out;
-   -o-transition: all 0.3s ease-in-out;
-   -webkit-transition: all 0.3s ease-in-out;
-   -ms-transition: all 0.3s ease-in-out;
-   transition: all 0.3s ease-in-out;
- }
- 
- /* content animate in */
- .mfp-fade.mfp-wrap.mfp-ready .mfp-content {
-   opacity: 1;
-   -webkit-transform: translateY(0);
-   -ms-transform: translateY(0);
-   transform: translateY(0);
- }
- 
- /* content animate out */
- .mfp-fade.mfp-wrap.mfp-removing .mfp-content {
-   opacity: 0;
-   -webkit-transform: translateY(-100%);
-   -ms-transform: translateY(-100%);
-   transform: translateY(-100%);
- }
- 
- /** 
-  * ===================================================================
-  * 14. call-to-action section - (_layout.scss)
-  *
-  * ------------------------------------------------------------------- 
-  */
- #cta {
-   padding-top: 10.2rem;
-   padding-bottom: 9rem;
-   text-align: center;
- }
- #cta p.lead {
-   color: #6e6e6e;
- }
- .cta-content {
-   max-width: 640px;
- }
- .cta-thumb {
-   display: inline-block;
-   margin-bottom: 1.2rem;
- }
- .cta-thumb img {
-   height: 7.8rem;
-   width: 7.8rem;
-   border-radius: 50%;
- }
- 
- /**
-  * section ads - (_layout.scss)
-  * ------------------------------------------------------------------- 
-  */
- .section-ads h2 {
-   position: relative;
-   padding-bottom: 2.1rem;
- }
- .section-ads h2::after {
-   content: "";
-   display: block;
-   height: 3px;
-   width: 80px;
-   background: rgba(0, 0, 0, 0.2);
-   position: absolute;
-   left: 50%;
-   bottom: 0;
-   margin-left: -40px;
- }
- .section-ads h2 a, .section-ads h2 a:visited {
-   color: #313131;
- }
- .section-ads span {
-   color: #3F0D39;
- }
- 
- /**
-  * responsive:
-  * cta
-  * -------------------------------------------------------------------
-  */
- @media only screen and (max-width:650px) {
-   .cta-content {
-     max-width: 650px;
-   }
-   .cta-content h2 {
-     font-size: 2.4rem;
-   }
- }
- 
- 
  /** 
   * ===================================================================
   * 15. services - (_layout.scss)
@@ -2110,28 +1789,7 @@
  .services-list .desc {
    color: rgba(255, 255, 255, 0.6);
  }
- 
- /* pagination */
- .owl-pagination {
-   text-align: center;
-   width: 100%;
-   margin: .6rem 0 0;
- }
- .owl-theme .owl-controls .owl-page {
-   display: inline-block;
- }
- .owl-theme .owl-controls .owl-page span {
-   display: block;
-   width: 1.2rem;
-   height: 1.2rem;
-   margin: 1.2rem .8rem 0 .8rem;
-   border-radius: 50%;
-   display: inline-block;
-   background: #FFFFFF;
- }
- .owl-theme .owl-controls .owl-page.active span {
-   background: #fed136;
- }
+
  
  
  /** 
