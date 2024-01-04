@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-resume',
   template: `
-    <section id="resume" class="grey-section">
+    <section id="resume" class="grey-section" #resume>
       <div class="row section-intro">
         <div class="col-twelve">
           <h5>Resume</h5>
@@ -76,8 +76,8 @@ import { Component } from '@angular/core';
   `,
   standalone: true,
 })
-export class ResumeComponent {
-  workExperienceList = [
+export class ResumeComponent implements AfterViewInit {
+  public workExperienceList = [
     {
       title: 'Frontend engineer',
       date: 'June 2022 - Present',
@@ -131,7 +131,7 @@ export class ResumeComponent {
     },
   ];
 
-  educationList = [
+  public educationList = [
     {
       title: 'Specialization course of Big data and Artificial Intelligence',
       date: 'September 2023 - June 2024',
@@ -148,4 +148,10 @@ export class ResumeComponent {
         '<p class="mb-2">qualification where you learn all the basics to be able to create web applications. This course is an official qualification from Spain.</p>',
     },
   ];
+
+  @ViewChild('resume', {static: true}) resume: ElementRef;
+
+  ngAfterViewInit() {
+
+  }
 }

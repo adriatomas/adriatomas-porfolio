@@ -28,7 +28,12 @@ import { SendEmailService } from '../services/send-email.service';
 
       <div class="row contact-form">
         <div class="col-twelve">
-          <form name="contactForm" id="contactForm" [formGroup]="contactForm" (ngSubmit)="submitForm($event)">
+          <form
+            name="contactForm"
+            id="contactForm"
+            [formGroup]="contactForm"
+            (ngSubmit)="submitForm($event)"
+          >
             <fieldset>
               <div class="form-field">
                 <input
@@ -75,9 +80,7 @@ import { SendEmailService } from '../services/send-email.service';
                 ></textarea>
               </div>
               <div class="form-field">
-                <button class="submitform" type="submit">
-                  Submit
-                </button>
+                <button class="submitform" type="submit">Submit</button>
                 <div id="submit-loader">
                   <div class="text-loader">Sending...</div>
                   <div class="s-loader">
@@ -168,7 +171,7 @@ export class ContactComponent {
     required: 'This field is required',
     minlength: 'This field must be at least 2 characters long',
     email: 'This field must be a valid email',
-    error: 'Something went wrong, please try again later'
+    error: 'Something went wrong, please try again later',
   };
   private formControlNames = {
     name: 'Name',
@@ -180,15 +183,17 @@ export class ContactComponent {
   private sendEmailService = inject(SendEmailService);
 
   public submitForm(event: Event) {
-    console.log('event', event);
     this.validateForm();
 
     if (this.formErrors.length === 0) {
-      this.sendEmailService.sendEmail(event.target as HTMLFormElement).then(() => {
-        this.success = true;
-      }).catch(() => {
-        this.formErrors.push(this.formErrorsMessages.error);
-      })
+      this.sendEmailService
+        .sendEmail(event.target as HTMLFormElement)
+        .then(() => {
+          this.success = true;
+        })
+        .catch(() => {
+          this.formErrors.push(this.formErrorsMessages.error);
+        });
     }
   }
 
@@ -198,8 +203,8 @@ export class ContactComponent {
       .map(([key, value]) => {
         const formControlErrors = value.errors as ValidationErrors;
 
-        return `${(this.formControlNames as any)[key]}: ${
-          (this.formErrorsMessages as any)[Object.keys(formControlErrors)[0]]
+        return `${this.formControlNames[key]}: ${
+          this.formErrorsMessages[Object.keys(formControlErrors)[0]]
         }`;
       });
   }
