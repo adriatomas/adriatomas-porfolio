@@ -1666,9 +1666,6 @@
    height: 100%;
  }
  #portfolio .folio-item-cell {
-   display: table-cell;
-   vertical-align: middle;
-   text-align: center;
    -moz-transition: all 0.5s ease-in-out;
    -o-transition: all 0.5s ease-in-out;
    -webkit-transition: all 0.5s ease-in-out;
@@ -1685,7 +1682,6 @@
    margin-bottom: 0;
  }
  #portfolio .folio-types {
-   margin: 0;
    padding: 0;
    text-transform: uppercase;
    font-family: "poppins-regular", sans-serif;
