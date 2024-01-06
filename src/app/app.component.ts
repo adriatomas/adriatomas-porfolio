@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public title = 'adria-portfolio';
+  public title = 'adria-porfolio';
   public author = 'Adrià Tomás';
   public infoList = [
     {title: 'Fullname:', value: this.author},
