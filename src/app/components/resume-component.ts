@@ -1,5 +1,6 @@
-import { AfterViewInit, Component, ElementRef, ViewChild, inject } from '@angular/core';
-import { HeaderService } from '../services/header.service';
+import {
+  Component
+} from '@angular/core';
 
 @Component({
   selector: 'app-resume',
@@ -77,7 +78,7 @@ import { HeaderService } from '../services/header.service';
   `,
   standalone: true,
 })
-export class ResumeComponent implements AfterViewInit {
+export class ResumeComponent {
   public workExperienceList = [
     {
       title: 'Frontend engineer',
@@ -149,15 +150,4 @@ export class ResumeComponent implements AfterViewInit {
         '<p class="mb-2">Qualification where you learn all the basics to be able to create web applications. This course is an official qualification from Spain.</p>',
     },
   ];
-
-  @ViewChild('resume', {static: true}) resume: ElementRef;
-
-  private headerService = inject(HeaderService)
-
-  ngAfterViewInit() {
-    let observer = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
-      this.headerService.visibleHeaderBackground = entries[0].isIntersecting;
-    });
-    observer.observe(this.resume.nativeElement);
-  }
 }

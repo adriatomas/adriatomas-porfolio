@@ -1,9 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, ViewChild, inject } from '@angular/core';
+import { HeaderService } from '../services/header.service';
 
 @Component({
   selector: 'app-intro',
   template: `
-    <section id="intro">
+    <section id="intro" #intro>
       <div class="intro-overlay"></div>
 
       <div class="intro-content">
@@ -37,6 +38,20 @@ import { Component, Input } from '@angular/core';
   `,
   standalone: true,
 })
-export class IntroComponent {
+export class IntroComponent implements AfterViewInit {
   @Input() author: string = '';
+  @ViewChild('intro', { static: true }) intro: ElementRef;
+
+  private headerService = inject(HeaderService);
+
+  ngAfterViewInit() {
+    let observer = new IntersectionObserver(
+      (entries: IntersectionObserverEntry[]) => {
+        console.log(entries[0].isIntersecting);
+        this.headerService.visibleHeaderBackground = !entries[0].isIntersecting
+      }
+    );
+
+    observer.observe(this.intro.nativeElement);
+  }
 }
