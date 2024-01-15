@@ -6,9 +6,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-header',
   template: `
     <header>
-      <div class="row">
         <div class="top-bar" [ngClass]="{'selected-menu': showHeaderBackground()}">
-          <div class="menu-toggle cursor-pointer" [ngClass]="{'is-clicked': isMenuOpen}" (click)="toggleMenu()" href="#"><span>Menu</span></div>
+          <a class="menu-toggle cursor-pointer" [ngClass]="{'is-clicked': isMenuOpen}" (click)="$event.preventDefault(); toggleMenu()" href="#"><span>Menu</span></a>
 
           <div class="logo">
             <a href="#intro" style="font-family: 'italic-font';">{{
@@ -37,7 +36,6 @@ import { CommonModule } from '@angular/common';
             </ul>
           </nav>
         </div>
-      </div>
     </header>
   `,
   standalone: true,

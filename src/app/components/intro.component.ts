@@ -45,9 +45,9 @@ export class IntroComponent implements AfterViewInit {
   private headerService = inject(HeaderService);
 
   ngAfterViewInit() {
-    let observer = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       (entries: IntersectionObserverEntry[]) => {
-        console.log(entries[0].isIntersecting);
+
         this.headerService.visibleHeaderBackground = !entries[0].isIntersecting
       }
     );

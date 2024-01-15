@@ -1125,12 +1125,16 @@
  }
  @media only screen and (max-width:600px) {
    header .top-bar {
-     left: 35px;
+     left: 0px;
+     width: 100%;
+     background: #2a2a2a;
    }
  }
  @media only screen and (max-width:400px) {
    header .top-bar {
-     left: 25px;
+     left: 0px;
+     width: 100%;
+     background: #2a2a2a;
    }
  }
  
