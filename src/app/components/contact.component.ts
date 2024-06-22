@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -31,6 +31,7 @@ import { SendEmailService } from '../services/send-email.service';
             <fieldset>
               <div class="form-field">
                 <input
+                  autocomplete="off"
                   name="contactName"
                   formControlName="name"
                   type="text"
@@ -43,6 +44,7 @@ import { SendEmailService } from '../services/send-email.service';
               </div>
               <div class="form-field">
                 <input
+                  autocomplete="off"
                   formControlName="email"
                   name="contactEmail"
                   type="email"
@@ -54,6 +56,7 @@ import { SendEmailService } from '../services/send-email.service';
               </div>
               <div class="form-field">
                 <input
+                  autocomplete="off"  
                   formControlName="subject"
                   name="contactSubject"
                   type="text"
@@ -64,6 +67,7 @@ import { SendEmailService } from '../services/send-email.service';
               </div>
               <div class="form-field">
                 <textarea
+                  autocomplete="off"
                   formControlName="message"
                   name="contactMessage"
                   id="contactMessage"

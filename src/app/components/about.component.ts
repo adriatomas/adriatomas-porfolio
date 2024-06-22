@@ -70,8 +70,8 @@ export class AboutComponent {
   public infoList = [
     { title: 'Fullname:', value: 'Adrià Tomás' },
     { title: 'Birth: Date', value: 'October 24, 1994' },
-    { title: 'Job:', value: 'Frontend Developer' },
-    { title: 'Website:', value: 'www.adriatomas.com' },
+    { title: 'Job:', value: 'Senior Frontend Developer' },
+    { title: 'Website:', value: 'https://adriatomas.github.io/adria-porfolio/' },
     { title: 'Email:', value: 'adriatomas@hotmail.com' },
   ];
 
@@ -80,8 +80,8 @@ export class AboutComponent {
     { title: 'CSS', value: 90 },
     { title: 'Javascript', value: 90 },
     { title: 'Angular', value: 90 },
-    { title: 'React', value: 70 },
-    { title: 'Jest', value: 70 },
+    { title: 'React', value: 80 },
+    { title: 'Jest', value: 80 },
   ];
 
   public resumeUrl = '/assets/files/resume.pdf'

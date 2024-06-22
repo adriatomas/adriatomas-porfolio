@@ -944,10 +944,11 @@
  }
  header .top-bar {
    display: block;
-   min-width: 220px;
+   min-width: 320px;
+   width: 100%;
    min-height: 66px;
    position: absolute;
-   left: 90px;
+   left: 0px;
    top: 0;
  }
  header .logo {
@@ -1081,7 +1082,7 @@
    background: #000000;
    padding: 24px 30px 42px;
    margin: 0;
-   width: 100%;
+   width: 320px;
    height: auto;
    clear: both;
  }
@@ -1113,16 +1114,6 @@
   * header styles
   * --------------------------------------------------------------- 
   */
- @media only screen and (max-width:1024px) {
-   header .top-bar {
-     left: 60px;
-   }
- }
- @media only screen and (max-width:768px) {
-   header .top-bar {
-     left: 50px;
-   }
- }
  @media only screen and (max-width:600px) {
    header .top-bar {
      left: 0px;
