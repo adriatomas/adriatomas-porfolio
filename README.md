@@ -8,6 +8,8 @@ In addition to their technical skills, this frontend developer has a keen eye fo
 
 Overall, this frontend developer with experience in creating a portfolio using Angular is a valuable asset to any team, capable of building modern and interactive web applications with a focus on user experience.
 
+Currently working in React with Typescript and GraphQL.
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.8.
 
